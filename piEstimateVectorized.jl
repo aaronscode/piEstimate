@@ -2,18 +2,16 @@ srand()
 
 print("Number of Samples: ")
 numSamples = parse(UInt64, readline())
-#numSamples = 1000000000
+#numSamples = 100000000
 
 numWithinRadius = 0
 
-for i = 1:numSamples
-	x = rand()
-	y = rand()
+x = rand(numSamples)
+y = rand(numSamples)
+
+radii = sqrt(x.^2 .+ y.^2)
 	
-	if sqrt(x^2 + y^2) < 1
-		numWithinRadius += 1
-	end
-end
+numWithinRadius = reduce(+, 0, map(Int, radii .< 1.0))
 
 piEstimate = 4 * numWithinRadius / numSamples
 

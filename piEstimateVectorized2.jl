@@ -6,11 +6,15 @@ numSamples = parse(UInt64, readline())
 
 numWithinRadius = 0
 
-for i = 1:numSamples
-	x = rand()
-	y = rand()
+x = rand(numSamples)
+y = rand(numSamples)
+
+radii = sqrt(x.^2 .+ y.^2)
 	
-	if sqrt(x^2 + y^2) < 1
+numWithinRadius = 0
+
+for i = 1:numSamples
+	if radii[i] < 1
 		numWithinRadius += 1
 	end
 end
