@@ -1,0 +1,7 @@
+[package]
+name = "piEstimateRust"
+version = "0.1.0"
+authors = ["Aaron Gross <agross@temple.edu>"]
+
+[dependencies]
+rand = "0.3"
